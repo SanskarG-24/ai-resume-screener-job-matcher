@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Screener AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Resume Screener + Job Matcher</p>
+          <h1>See how well a resume fits a role before a recruiter does.</h1>
+          <p class="hero-text">
+            Paste a resume, drop in a job description, and get a match score,
+            skill gap map, ATS checks, and practical rewrite advice.
+          </p>
+          <div class="hero-actions">
+            <button id="loadSampleBtn" class="ghost-button">Load sample</button>
+            <button id="analyzeTopBtn" class="primary-button">Run analysis</button>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="hero-card-row">
+            <span>Skill match</span>
+            <strong id="heroSkillMatch">0%</strong>
+          </div>
+          <div class="hero-card-row">
+            <span>ATS readiness</span>
+            <strong id="heroAtsScore">0%</strong>
+          </div>
+          <div class="hero-card-row">
+            <span>Missing skills</span>
+            <strong id="heroMissingCount">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="input-grid">
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Candidate Resume</p>
+                <h2>Resume text</h2>
+              </div>
+              <label class="upload-chip">
+                Upload text
+                <input id="resumeFileInput" type="file" accept=".txt,.md" hidden />
+              </label>
+            </div>
+            <textarea
+              id="resumeInput"
+              placeholder="Paste the full resume here..."
+            ></textarea>
+            <div class="meta-row">
+              <span id="resumeStats">0 words</span>
+              <button id="clearResumeBtn" class="text-button">Clear</button>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-header">
+              <div>
+                <p class="panel-label">Target Role</p>
+                <h2>Job description</h2>
+              </div>
+              <label class="upload-chip">
+                Upload text
+                <input id="jobFileInput" type="file" accept=".txt,.md" hidden />
+              </label>
+            </div>
+            <textarea
+              id="jobInput"
+              placeholder="Paste the job description here..."
+            ></textarea>
+            <div class="meta-row">
+              <span id="jobStats">0 words</span>
+              <button id="clearJobBtn" class="text-button">Clear</button>
+            </div>
+          </article>
+        </section>
+
+        <section class="toolbar">
+          <button id="analyzeBtn" class="primary-button">Analyze match</button>
+          <p class="toolbar-note">
+            Works fully offline with transparent rule-based scoring.
+          </p>
+        </section>
+
+        <section class="results-grid">
+          <article class="result-card score-card">
+            <p class="panel-label">Overall Match</p>
+            <div class="score-ring" id="scoreRing">
+              <div class="score-ring-inner">
+                <strong id="overallScore">0</strong>
+                <span>/100</span>
+              </div>
+            </div>
+            <p id="scoreSummary" class="muted">
+              Add resume and job description text to begin.
+            </p>
+          </article>
+
+          <article class="result-card">
+            <p class="panel-label">Breakdown</p>
+            <div id="breakdownList" class="breakdown-list"></div>
+          </article>
+
+          <article class="result-card">
+            <p class="panel-label">Candidate Snapshot</p>
+            <div id="snapshot" class="snapshot"></div>
+          </article>
+
+          <article class="result-card span-two">
+            <p class="panel-label">Skills Coverage</p>
+            <div class="chip-grid">
+              <div>
+                <h3>Matched skills</h3>
+                <div id="matchedSkills" class="chips"></div>
+              </div>
+              <div>
+                <h3>Missing or weak skills</h3>
+                <div id="missingSkills" class="chips"></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="result-card">
+            <p class="panel-label">Strengths</p>
+            <ul id="strengthList" class="insight-list"></ul>
+          </article>
+
+          <article class="result-card">
+            <p class="panel-label">ATS Risks</p>
+            <ul id="riskList" class="insight-list"></ul>
+          </article>
+
+          <article class="result-card span-two">
+            <p class="panel-label">Recommendations</p>
+            <ol id="recommendationList" class="recommendation-list"></ol>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

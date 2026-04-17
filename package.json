@@ -1,0 +1,9 @@
+{
+  "name": "ai-resume-screener-job-matcher",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local AI-style resume screener and job matcher MVP",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
