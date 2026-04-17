@@ -1,12 +1,15 @@
-# AI Resume Screener + Job Matcher
+# TalentScope AI
 
-A polished local MVP that compares a resume against a job description and produces:
+TalentScope AI is a local-first recruiter dashboard for resume screening and job matching.
 
-- match score
-- skill overlap and gaps
-- ATS-style quality checks
-- tailored improvement suggestions
-- quick candidate summary
+## What it does
+
+- analyze one job description against multiple candidate resumes
+- rank candidates on a live leaderboard
+- show ATS readiness, keyword overlap, evidence strength, and role alignment
+- generate recruiter notes, shortlist tiers, recommendations, and interview questions
+- export the full screening report as JSON
+- save the current session locally in the browser
 
 ## Run it
 
@@ -16,17 +19,28 @@ A polished local MVP that compares a resume against a job description and produc
 
 No dependencies are required.
 
-## Best results
+## Demo flow
 
-- Paste resume text directly into the app.
-- Paste the target job description into the second panel.
-- You can also upload `.txt` or `.md` files for quick testing.
+1. Click `Load demo candidates`
+2. Review the sample job description and the 3 example applicants
+3. Click `Analyze all candidates`
+4. Open any ranked candidate card to inspect the detailed breakdown
+5. Click `Export report` to download the screening results
 
-## Notes
+## Why this version is stronger
 
-This MVP uses transparent heuristic NLP instead of a hosted LLM, so it works fully offline and is easy to extend. If you want, the next version can add:
+This is more than a single resume checker. It behaves like a lightweight applicant review tool with:
 
-- OpenAI-powered resume rewriting
-- PDF or DOCX parsing
-- candidate ranking for multiple resumes
-- export to PDF
+- multi-candidate ranking
+- recruiter-style shortlist decisions
+- weighted scoring categories
+- interview question generation
+- downloadable reports
+- local persistence
+
+## Next upgrades
+
+- PDF and DOCX parsing
+- OpenAI or Gemini feedback generation
+- authentication and saved job pipelines
+- deploy to Vercel or Render
